@@ -36,24 +36,25 @@ public class MySpriteAction : MonoBehaviour
 		axis = Input.GetAxisRaw ("Horizontal");
 		bool isDown = Input.GetAxisRaw ("Vertical") < 0;	//Vertical入力が負か否か
 
-		if (Input.GetButtonDown ("Jump")) {
-			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
-		}
-
 		var distanceFromGround = Physics2D.BoxCast (transform.position, new Vector2(0.18f,0.18f), 0, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
 		//var distanceFromGround = Physics2D.Raycast (transform.position, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
 
 		// update animator parameters
 		animator.SetBool (hashIsCrouch, isDown);	//isDownをhashIsCrouchに代入（Bool）
 		animator.SetFloat (hashGroundDistance, distanceFromGround.distance == 0 ? 99 : distanceFromGround.distance - characterHeightOffset);	//めり込んでたら99を返す(いしのなかにいる)、そうでなければ地面との距離-キャラ高さ
-		//Debug.Log(distanceFromGround.distance);
+		//Debug.Log(hashGroundDistance);
 		animator.SetFloat (hashFallSpeed, rig2d.velocity.y);
 		animator.SetFloat (hashSpeed, Mathf.Abs (axis)); //速さは速度の絶対値
 
 		rig2d.velocity = new Vector2 (axis, rig2d.velocity.y);
 
 		// flip sprite
-		if (axis != 0)	//Horizontal入力がちょっとでもあるとき
+		if (axis != 0){	//Horizontal入力がちょっとでもあるとき
 			spriteRenderer.flipX = axis < 0;	//Renderer flipXがtrueなら通常,falseのとき反転
+		}
+
+		if (Input.GetButtonDown ("Jump") && Mathf.Abs(distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
+			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
+		}
 	}
 }
