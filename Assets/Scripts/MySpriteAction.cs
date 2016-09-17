@@ -40,7 +40,8 @@ public class MySpriteAction : MonoBehaviour
 			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
 		}
 
-		var distanceFromGround = Physics2D.Raycast (transform.position, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
+		var distanceFromGround = Physics2D.BoxCast (transform.position, new Vector2(0.18f,0.18f), 0, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
+		//var distanceFromGround = Physics2D.Raycast (transform.position, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
 
 		// update animator parameters
 		animator.SetBool (hashIsCrouch, isDown);	//isDownをhashIsCrouchに代入（Bool）
