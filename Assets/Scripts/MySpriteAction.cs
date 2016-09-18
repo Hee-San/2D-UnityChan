@@ -21,7 +21,6 @@ public class MySpriteAction : MonoBehaviour
 	public int hp = 4;
 
 	public float axis;
-	public float speed;
 
 
 
@@ -47,21 +46,15 @@ public class MySpriteAction : MonoBehaviour
 		animator.SetFloat (hashFallSpeed, rig2d.velocity.y);
 		animator.SetFloat (hashSpeed, Mathf.Abs (axis)); //速さは速度の絶対値
 
-		rig2d.velocity = new Vector2 (axis*speed, rig2d.velocity.y);
+		rig2d.velocity = new Vector2 (axis, rig2d.velocity.y);
 
 		// flip sprite
 		if (axis != 0){	//Horizontal入力がちょっとでもあるとき
 			spriteRenderer.flipX = axis < 0;	//Renderer flipXがtrueなら通常,falseのとき反転
 		}
 
-		if (!isDown && Input.GetButtonDown ("Jump") && Mathf.Abs(distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
+		if (Input.GetButtonDown ("Jump") && Mathf.Abs(distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
 			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
-		}
-
-		if (isDown) {
-			GetComponent<BoxCollider2D> ().enabled = false;
-		} else {
-			GetComponent<BoxCollider2D> ().enabled = true;
 		}
 	}
 }
