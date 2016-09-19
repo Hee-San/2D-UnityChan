@@ -18,12 +18,15 @@ public class MySpriteAction : MonoBehaviour
 	[SerializeField, HideInInspector]SpriteRenderer spriteRenderer;
 	[SerializeField, HideInInspector]Rigidbody2D rig2d;
 
+	private AudioSource audioSource;
+
 	public int hp = 4;
 
 	public float axis;
 	public float speed;
 
 	public GameObject gameManager;
+	public AudioClip get;
 
 
 
@@ -32,6 +35,7 @@ public class MySpriteAction : MonoBehaviour
 		animator = GetComponent<Animator> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		rig2d = GetComponent<Rigidbody2D> ();
+		audioSource = gameObject.GetComponent<AudioSource>();
 	}
 
 	void Update ()
@@ -64,8 +68,10 @@ public class MySpriteAction : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.gameObject.tag) {
 		case "donuts":
-			gameManager.GetComponent<GameManagerScript>().donuts++;
+			gameManager.GetComponent<GameManagerScript> ().donuts++;
 			Destroy (other.gameObject);
+			audioSource.clip = get;
+			audioSource.Play ();
 			break;
 		}
 	}
