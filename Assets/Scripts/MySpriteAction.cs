@@ -21,6 +21,7 @@ public class MySpriteAction : MonoBehaviour
 	public int hp = 4;
 
 	public float axis;
+	public float speed;
 
 
 
@@ -46,7 +47,7 @@ public class MySpriteAction : MonoBehaviour
 		animator.SetFloat (hashFallSpeed, rig2d.velocity.y);
 		animator.SetFloat (hashSpeed, Mathf.Abs (axis)); //速さは速度の絶対値
 
-		rig2d.velocity = new Vector2 (axis, rig2d.velocity.y);
+		rig2d.velocity = new Vector2 (axis*speed, rig2d.velocity.y);
 
 		// flip sprite
 		if (axis != 0){	//Horizontal入力がちょっとでもあるとき
