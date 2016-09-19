@@ -23,6 +23,8 @@ public class MySpriteAction : MonoBehaviour
 	public float axis;
 	public float speed;
 
+	public GameObject gameManager;
+
 
 
 	void Awake ()
@@ -56,6 +58,15 @@ public class MySpriteAction : MonoBehaviour
 
 		if (Input.GetButtonDown ("Jump") && Mathf.Abs(distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
 			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		switch (other.gameObject.tag) {
+		case "donuts":
+			gameManager.GetComponent<GameManagerScript>().donuts++;
+			Destroy (other.gameObject);
+			break;
 		}
 	}
 }
