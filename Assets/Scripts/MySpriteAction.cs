@@ -41,7 +41,7 @@ public class MySpriteAction : MonoBehaviour
 	void Update ()
 	{
 		axis = Input.GetAxisRaw ("Horizontal");
-		bool isDown = Input.GetAxisRaw ("Vertical") < 0;	//Vertical入力が負か否か
+		bool isDown = Input.GetAxisRaw ("Vertical") < 0 && axis == 0;	//Vertical入力が負か否か
 
 		var distanceFromGround = Physics2D.BoxCast (transform.position, new Vector2(0.18f,0.18f), 0, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
 		//var distanceFromGround = Physics2D.Raycast (transform.position, Vector3.down, 1, groundMask);	//position地点からdown方向に向かって最大1までReyを飛ばす、groundMaskに当たるかどうか
@@ -60,8 +60,14 @@ public class MySpriteAction : MonoBehaviour
 			spriteRenderer.flipX = axis < 0;	//Renderer flipXがtrueなら通常,falseのとき反転
 		}
 
-		if (Input.GetButtonDown ("Jump") && Mathf.Abs(distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
-			rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
+		if (isDown) {
+			GetComponent<BoxCollider2D> ().enabled = false;
+		} else {
+			GetComponent<BoxCollider2D> ().enabled = true;
+
+			if (Input.GetButtonDown ("Jump") && Mathf.Abs (distanceFromGround.distance - characterHeightOffset) <= 0.08f) {
+				rig2d.velocity = new Vector2 (rig2d.velocity.x, 5);
+			}
 		}
 	}
 
