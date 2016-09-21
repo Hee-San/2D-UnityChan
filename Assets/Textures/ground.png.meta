@@ -1,18 +1,17 @@
 fileFormatVersion: 2
 guid: b07a695ebb4d0194592c1f04803d4ab1
-timeCreated: 1474112470
+timeCreated: 1474463517
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: ground_0
     21300002: ground_1
     21300004: ground_2
-  serializedVersion: 2
+  serializedVersion: 3
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -40,20 +39,23 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  shapeTexture: 0
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: ground_0
+    - serializedVersion: 2
+      name: ground_0
       rect:
         serializedVersion: 2
         x: 1
@@ -64,7 +66,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ground_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ground_1
       rect:
         serializedVersion: 2
         x: 33
@@ -75,7 +79,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: ground_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ground_2
       rect:
         serializedVersion: 2
         x: 65
@@ -86,6 +92,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
