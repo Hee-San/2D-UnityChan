@@ -13,6 +13,6 @@ public class GameManagerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Text.GetComponent<Text> ().text = donuts.ToString ();
+		Text.GetComponent<Text> ().text = "x" + donuts.ToString ();
 	}
 }
