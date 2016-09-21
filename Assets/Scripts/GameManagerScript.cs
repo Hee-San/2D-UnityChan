@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour {
 
 	public int donuts = 0;
-	public GameObject canvas;
+	public GameObject Text;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,6 +13,6 @@ public class GameManagerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		canvas.GetComponent<Text> ().text = donuts.ToString ();
+		Text.GetComponent<Text> ().text = donuts.ToString ();
 	}
 }
