@@ -79,10 +79,6 @@ public class MySpriteAction : MonoBehaviour
 			audioSource.clip = get;
 			audioSource.Play ();
 			break;
-		case "candy":
-			gameManager.GetComponent<GameManagerScript> ().candy++;
-			Destroy (other.gameObject);
-			break;
 		}
 	}
 }
