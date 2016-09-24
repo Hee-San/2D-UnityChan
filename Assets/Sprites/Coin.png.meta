@@ -7,12 +7,11 @@ TextureImporter:
     21300000: Coin_0
     21300002: Coin_1
     21300004: Coin_2
-  serializedVersion: 2
+  serializedVersion: 3
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -32,7 +31,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -40,7 +39,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -49,11 +47,15 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  shapeTexture: 0
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Coin_0
+    - serializedVersion: 2
+      name: Coin_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,7 +66,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Coin_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Coin_1
       rect:
         serializedVersion: 2
         x: 16
@@ -75,7 +79,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: Coin_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Coin_2
       rect:
         serializedVersion: 2
         x: 32
@@ -86,6 +92,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

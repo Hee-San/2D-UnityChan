@@ -27,6 +27,7 @@ public class MySpriteAction : MonoBehaviour
 
 	public GameObject gameManager;
 	public AudioClip get;
+	public GameObject heartPanel;
 
 
 
@@ -83,8 +84,12 @@ public class MySpriteAction : MonoBehaviour
 			gameManager.GetComponent<GameManagerScript> ().candy++;
 			Destroy (other.gameObject);
 			break;
-		case"pudding":
+		case "pudding":
 			gameManager.GetComponent<GameManagerScript> ().pudding++;
+			Destroy (other.gameObject);
+			break;
+		case "heart":
+			heartPanel.GetComponent<HeartPanelScript> ().GetHeart (other.GetComponent<ID> ().id);
 			Destroy (other.gameObject);
 			break;
 		}
