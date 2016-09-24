@@ -83,6 +83,10 @@ public class MySpriteAction : MonoBehaviour
 			gameManager.GetComponent<GameManagerScript> ().candy++;
 			Destroy (other.gameObject);
 			break;
+		case"pudding":
+			gameManager.GetComponent<GameManagerScript> ().pudding++;
+			Destroy (other.gameObject);
+			break;
 		}
 	}
 }
