@@ -9,24 +9,22 @@ public class HeartPanelScript : MonoBehaviour {
 	public GameObject GameManager;
 
 	public void GetHeart(int id){
-		GameObject Box = new GameObject();
 
 		switch (id) {
 		case 1:
-			Box = transform.FindChild ("heartbox_1").gameObject;
+			transform.FindChild ("heartbox_1").gameObject.GetComponent<Image> ().sprite = Heart;
 			GameManager.GetComponent<GameManagerScript> ().heart_1 = true;
 			break;
 		case 2:
-			Box = transform.FindChild ("heartbox_2").gameObject;
+			transform.FindChild ("heartbox_2").gameObject.GetComponent<Image> ().sprite = Heart;
 			GameManager.GetComponent<GameManagerScript> ().heart_2 = true;
 			break;
 		case 3:
-			Box = transform.FindChild ("heartbox_3").gameObject;
+			transform.FindChild ("heartbox_3").gameObject.GetComponent<Image> ().sprite = Heart;
 			GameManager.GetComponent<GameManagerScript> ().heart_3 = true;
 			break;
 		}
 
-		Box.GetComponent<Image> ().sprite = Heart;
 
 	}
 }
