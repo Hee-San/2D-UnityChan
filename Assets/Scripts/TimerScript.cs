@@ -8,11 +8,7 @@ public class TimerScript : MonoBehaviour {
 	float secondF = 0;
 	public int second = 0;
 	int oldsecond = 0;
-	//public bool timerflag = true;
-	public GameObject textfield;
 
-	
-	// Update is called once per frame
 	void Update () {
 		if (Time.timeScale > 0) {
 			secondF += Time.deltaTime;
