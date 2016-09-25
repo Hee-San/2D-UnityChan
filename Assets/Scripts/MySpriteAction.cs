@@ -83,14 +83,20 @@ public class MySpriteAction : MonoBehaviour
 		case "candy":
 			gameManager.GetComponent<GameManagerScript> ().candy++;
 			Destroy (other.gameObject);
+			audioSource.clip = get;
+			audioSource.Play ();
 			break;
 		case "pudding":
 			gameManager.GetComponent<GameManagerScript> ().pudding++;
 			Destroy (other.gameObject);
+			audioSource.clip = get;
+			audioSource.Play ();
 			break;
 		case "heart":
 			heartPanel.GetComponent<HeartPanelScript> ().GetHeart (other.GetComponent<ID> ().id);
 			Destroy (other.gameObject);
+			audioSource.clip = get;
+			audioSource.Play ();
 			break;
 		}
 	}
