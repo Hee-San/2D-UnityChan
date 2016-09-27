@@ -75,24 +75,32 @@ public class MySpriteAction : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.gameObject.tag) {
 		case "donuts":
+			if(!other.gameObject.activeSelf) break;
+			other.gameObject.SetActive(false);
 			gameManager.GetComponent<GameManagerScript> ().donuts++;
 			Destroy (other.gameObject);
 			audioSource.clip = get;
 			audioSource.Play ();
 			break;
 		case "candy":
+			if(!other.gameObject.activeSelf) break;
+			other.gameObject.SetActive(false);
 			gameManager.GetComponent<GameManagerScript> ().candy++;
 			Destroy (other.gameObject);
 			audioSource.clip = get;
 			audioSource.Play ();
 			break;
 		case "pudding":
+			if(!other.gameObject.activeSelf) break;
+			other.gameObject.SetActive(false);
 			gameManager.GetComponent<GameManagerScript> ().pudding++;
 			Destroy (other.gameObject);
 			audioSource.clip = get;
 			audioSource.Play ();
 			break;
 		case "heart":
+			if(!other.gameObject.activeSelf) break;
+			other.gameObject.SetActive(false);
 			heartPanel.GetComponent<HeartPanelScript> ().GetHeart (other.GetComponent<ID> ().id);
 			Destroy (other.gameObject);
 			audioSource.clip = get;
